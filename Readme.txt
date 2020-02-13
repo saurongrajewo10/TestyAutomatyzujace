@@ -1,0 +1,1 @@
+Wstêp do testowania
