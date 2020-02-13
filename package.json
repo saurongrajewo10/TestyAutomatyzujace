@@ -1,0 +1,23 @@
+{
+  "name": "automatyzacja",
+  "version": "1.0.0",
+  "description": "Wstep do testowania",
+  "main": "index.js",
+  "dependencies": {
+    "chromedriver": "^80.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saurongrajewo10/TestyAutomatyzujace.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saurongrajewo10/TestyAutomatyzujace/issues"
+  },
+  "homepage": "https://github.com/saurongrajewo10/TestyAutomatyzujace#readme"
+}

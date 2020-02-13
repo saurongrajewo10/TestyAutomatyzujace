@@ -1,1 +1,1 @@
-Wstêp do testowania
+Wstep do testowania
