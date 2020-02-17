@@ -1,5 +1,5 @@
 const { Builder, By, Key, util } = require("selenium-webdriver")
-async function Tc02Zaloguj() {
+async function Tc02Login() {
     let driver = await new Builder().forBrowser("chrome").build();
     await driver.get("http://automationpractice.com/index.php")
     await driver.findElement(By.xpath('//*[@id="header"]/div[2]/div/div/nav/div[1]/a')).click();
@@ -9,4 +9,5 @@ async function Tc02Zaloguj() {
 
     //driver.quit();
 }
-Tc02Zaloguj()
+Tc02Login()
+ 
