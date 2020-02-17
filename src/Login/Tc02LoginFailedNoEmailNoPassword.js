@@ -1,5 +1,4 @@
-const { Builder, By, Key, until, WebDriver } = require("selenium-webdriver")
-var webdriver = require('selenium-webdriver');
+const { Builder, By, Key, until } = require("selenium-webdriver")
 
 async function Tc02LoginFailedNoEmailNoPassword() {
     console.clear();
