@@ -1,7 +1,6 @@
-const { Builder, By, Key, util } = require("selenium-webdriver");
-const Tc02LoginFailedNoEmailNoPassword = require("../Automatyzacja/src/Login/Tc02LoginFailedNoEmailNoPassword")
+const { Tc02Login } = require("./src/Login/Tc02LogIn");
+
 async function testing() {
-    console.log(Tc02LoginFailedNoEmailNoPassword.Tc02LoginFailedNoEmailNoPassword)
-    
+    Tc02Login();
 }
-testing()
+testing();
