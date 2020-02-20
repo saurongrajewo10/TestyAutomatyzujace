@@ -1,5 +1,4 @@
 const { Builder, By, Key, until } = require("selenium-webdriver")
-const assert = require('assert');
 
 async function Tc02LoginFailedNoEmailNoPassword() {
     let driver = await new Builder().forBrowser("chrome").build();
@@ -24,6 +23,5 @@ async function Tc02LoginFailedNoEmailNoPassword() {
     }
 
 }
-Tc02LoginFailedNoEmailNoPassword();
-
+module.exports.Tc02LoginFailedNoEmailNoPassword = Tc02LoginFailedNoEmailNoPassword;
 
