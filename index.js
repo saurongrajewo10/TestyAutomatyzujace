@@ -1,8 +1,7 @@
 const { Builder, By, Key, util } = require("selenium-webdriver");
-async function example() {
-    let driver = await new Builder().forBrowser("chrome").build();
-    await driver.get("http://google.pl");
-    await driver.findElement(By.name("q")).sendKeys("Selenium", Key.RETURN)
+const Tc02LoginFailedNoEmailNoPassword = require("../Automatyzacja/src/Login/Tc02LoginFailedNoEmailNoPassword")
+async function testing() {
+    console.log(Tc02LoginFailedNoEmailNoPassword.Tc02LoginFailedNoEmailNoPassword)
     
 }
-example()
+testing()
