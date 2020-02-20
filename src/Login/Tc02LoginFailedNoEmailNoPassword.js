@@ -1,7 +1,6 @@
 const { Builder, By, Key, until } = require("selenium-webdriver")
 
-async function Tc02LoginFailedNoEmailNoPassword() {
-    let driver = await new Builder().forBrowser("chrome").build();
+async function Tc02LoginFailedNoEmailNoPassword(driver) {
     try {
         await driver.get("http://automationpractice.com/index.php");
         await driver.findElement(By.xpath('//*[@id="header"]/div[2]/div/div/nav/div[1]/a')).click();
@@ -12,7 +11,7 @@ async function Tc02LoginFailedNoEmailNoPassword() {
         if (testKomunikatu.match(/An email address required./)) {
         }
         else {
-            console.log("Inappropriate error statement has been isplayed");
+            console.log("Inappropriate error statement has been displayed");
             return false;
         }
         return true;
@@ -21,7 +20,6 @@ async function Tc02LoginFailedNoEmailNoPassword() {
         console.log('Error Tc02LoginFailedNoEmailNoPassword');
         return false;
     }
-
 }
-module.exports.Tc02LoginFailedNoEmailNoPassword = Tc02LoginFailedNoEmailNoPassword;
 
+module.exports.Tc02LoginFailedNoEmailNoPassword = Tc02LoginFailedNoEmailNoPassword;
