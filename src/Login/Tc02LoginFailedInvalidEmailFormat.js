@@ -1,15 +1,16 @@
 const { Builder, By, Key, until } = require("selenium-webdriver")
 
-async function Tc02LoginFailedNoEmailNoPassword(driver) {
-    
+async function Tc02LoginFailedInvalidEmailFormat(driver) {
+
     try {
         await driver.get("http://automationpractice.com/index.php");
         await driver.findElement(By.xpath('//*[@id="header"]/div[2]/div/div/nav/div[1]/a')).click();
-        await driver.wait(until.elementLocated(By.xpath('//*[@id="SubmitLogin"]'))).click();
+        await driver.wait(until.elementLocated(By.xpath('//*[@id="email"]'))).sendKeys('bobmars');
+        await driver.wait(until.elementLocated(By.xpath('//*[@id="passwd"]'))).sendKeys('BobMars', Key.ENTER);
         await driver.wait(until.elementLocated(By.xpath('//*[@id="center_column"]/div[1]')));
 
         var errorMessage = await driver.findElement(By.xpath('//*[@id="center_column"]/div[1]/ol')).getText();
-        if (errorMessage.match(/An email address required./)) {
+        if (errorMessage.match(/Invalid email address./)) {
         }
         else {
             console.log("Inappropriate error statement has been displayed");
@@ -18,9 +19,9 @@ async function Tc02LoginFailedNoEmailNoPassword(driver) {
         return true;
     }
     catch {
-        console.log('Error Tc02LoginFailedNoEmailNoPassword');
+        console.log('Error Tc02LoginFailedInvalidEmailFormat');
         return false;
     }
 }
 
-module.exports.Tc02LoginFailedNoEmailNoPassword = Tc02LoginFailedNoEmailNoPassword;
+module.exports.Tc02LoginFailedInvalidEmailFormat = Tc02LoginFailedInvalidEmailFormat;
