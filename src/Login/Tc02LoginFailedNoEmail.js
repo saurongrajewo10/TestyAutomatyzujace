@@ -22,5 +22,4 @@ async function Tc02LoginFailedNoEmail(driver) {
         return false;
     }
 }
-
 module.exports.Tc02LoginFailedNoEmail = Tc02LoginFailedNoEmail;

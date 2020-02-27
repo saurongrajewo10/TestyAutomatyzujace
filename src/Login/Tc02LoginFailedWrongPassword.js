@@ -22,5 +22,4 @@ async function Tc02LoginFailedWrongPassword(driver) {
         return false;
     }
 }
-
 module.exports.Tc02LoginFailedWrongPassword = Tc02LoginFailedWrongPassword;
