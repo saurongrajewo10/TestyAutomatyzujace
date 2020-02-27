@@ -9,6 +9,7 @@ const { Builder } = require("selenium-webdriver");
 async function Tc02Login() {
     try {
     let driver = await new Builder().forBrowser("chrome").build();
+    driver.manage().window().maximize();
     await Tc02LoginFailedInvalidEmailFormat(driver);
     await Tc02LoginFailedNoEmail(driver);
     await Tc02LoginFailedNoEmailNoPassword(driver);
