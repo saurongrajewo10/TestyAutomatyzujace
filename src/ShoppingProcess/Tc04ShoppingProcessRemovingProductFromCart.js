@@ -1,7 +1,7 @@
 const { Builder, By, Key, until } = require("selenium-webdriver");
 const sleep = (milliseconds) => {
     return new Promise(resolve => setTimeout(resolve, milliseconds))
-  }
+}
 
 async function Tc04ShoppingProcessRemovingProductFromCart() {
 
@@ -9,8 +9,8 @@ async function Tc04ShoppingProcessRemovingProductFromCart() {
     let driver = await new Builder().forBrowser("chrome").build();
     driver.manage().window().maximize();
     await driver.get("http://automationpractice.com/index.php");
+    
     const actions = driver.actions({ bridge: true });
-
     var elem = await driver.findElement(By.xpath('//*[@id="homefeatured"]/li[1]/div/div[1]/div/a[1]/img'));
     await actions.move({ duration: 1000, origin: elem, x: 0, y: 0 }).perform();
     await driver.wait(until.elementLocated(By.xpath('//*[@id="homefeatured"]/li[1]/div/div[2]/div[2]/a[1]/span'))).click();
@@ -39,6 +39,9 @@ async function Tc04ShoppingProcessRemovingProductFromCart() {
         console.log("Error Tc04ShoppingProcessRemovingProductFromCart shopping cart is not empty")
     }
 
+    // let d = await testForReload();
+    
+
     await driver.findElement(By.className('logo img-responsive')).click();
     var pageUrl = (await driver.getCurrentUrl()).toString();
     if (pageUrl == 'http://automationpractice.com/index.php') {
@@ -54,3 +57,20 @@ async function Tc04ShoppingProcessRemovingProductFromCart() {
     // }
 }
 Tc04ShoppingProcessRemovingProductFromCart();
+
+
+// function testForReload(){
+//     return new Promise( resolve => {
+//         driver.findElement(By.xpath('//*[@id="authentication"]')).className.add('old');
+
+//         let listener = setInterval( ( ) => {
+//             let exit = driver.findElement(By.xpath('//*[@id="authentication"]')).className.include('old');
+
+//             if( exit ) {
+//                 clearInterval( listener )
+//                 resolve()
+//             }
+
+//         }, 100 )
+//     })
+// }
