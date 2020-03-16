@@ -16,7 +16,7 @@ async function Tc04LoginAndShoppingProcessAndPayByCheck() {
         if (authenticationPageConfirm.match(/AUTHENTICATION/)) {
         }
         else {
-            console.log("Error Tc04LoginAndShoppingProcessAndPayByBankWire user is not on authentication page");
+            console.log("Error Tc04LoginAndShoppingProcessAndPayByCheck user is not on authentication page");
         }
         await driver.wait(until.elementLocated(By.css('#email'))).sendKeys('bobtest@gmail.com');
         await driver.wait(until.elementLocated(By.css('#passwd'))).sendKeys('Bobmars', Key.RETURN);
@@ -25,7 +25,7 @@ async function Tc04LoginAndShoppingProcessAndPayByCheck() {
         if (myAccountPageConfirm.match(/MY ACCOUNT/)) {
         }
         else {
-            console.log("Error Tc04LoginAndShoppingProcessAndPayByBankWire user is not on my account page");
+            console.log("Error Tc04LoginAndShoppingProcessAndPayByCheck user is not on my account page");
         }
 
         await driver.findElement(By.css('#header_logo > a')).click();
@@ -38,7 +38,7 @@ async function Tc04LoginAndShoppingProcessAndPayByCheck() {
         if (shoppingCartConfirm.match(/SHOPPING-CART SUMMARY/)) {
         }
         else {
-            console.log("Error Tc04LoginAndShoppingProcessAndPayByBankWire user is not on shopping cart summary screen");
+            console.log("Error Tc04LoginAndShoppingProcessAndPayByCheck user is not on shopping cart summary screen");
         }
 
         await driver.findElement(By.css('#center_column > p.cart_navigation.clearfix > a.button.btn.btn-default.standard-checkout.button-medium')).click();
@@ -47,7 +47,7 @@ async function Tc04LoginAndShoppingProcessAndPayByCheck() {
         if (addressScreenConfirm.match(/ADDRESSES/)) {
         }
         else {
-            console.log("Error Tc04LoginAndShoppingProcessAndPayByBankWire user is not on address screen");
+            console.log("Error Tc04LoginAndShoppingProcessAndPayByCheck user is not on address screen");
         }
 
         await driver.findElement(By.css('#center_column > form > p > button')).click();
@@ -56,7 +56,7 @@ async function Tc04LoginAndShoppingProcessAndPayByCheck() {
         if (shippingScreenConfirm.match(/SHIPPING/)) {
         }
         else {
-            console.log("Error Tc04LoginAndShoppingProcessAndPayByBankWire user is not on shipping screen");
+            console.log("Error Tc04LoginAndShoppingProcessAndPayByCheck user is not on shipping screen");
         }
 
         await driver.findElement(By.css('#cgv')).click();
@@ -66,7 +66,7 @@ async function Tc04LoginAndShoppingProcessAndPayByCheck() {
         if (paymentMethodScreenConfirm.match(/PLEASE CHOOSE YOUR PAYMENT METHOD/)) {
         }
         else {
-            console.log("Error Tc04LoginAndShoppingProcessAndPayByBankWire user is not on payment method screen");
+            console.log("Error Tc04LoginAndShoppingProcessAndPayByCheck user is not on payment method screen");
         }
         await driver.findElement(By.css('#HOOK_PAYMENT > div:nth-child(2) > div > p > a')).click();
 
@@ -74,7 +74,7 @@ async function Tc04LoginAndShoppingProcessAndPayByCheck() {
         if (orderSummaryScreenConfirm.match(/ORDER SUMMARY/)) {
         }
         else {
-            console.log("Error Tc04LoginAndShoppingProcessAndPayByBankWire user is not on order summary screen");
+            console.log("Error Tc04LoginAndShoppingProcessAndPayByCheck user is not on order summary screen");
         }
 
         await driver.findElement(By.css('#cart_navigation > button')).click();
