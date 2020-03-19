@@ -26,17 +26,27 @@ async function Tc05PricesChecking() {
     
 
     await driver.findElement(By.css('#cart_quantity_up_1_1_0_0')).click();
-    await sleep(2000);
+    await sleep(1500);
     await checkPriceAndQuantityOfProducts(driver, '2', '$16.51', '$33.02', '#product_price_1_1_0',
     '#product_1_1_0_0 > td.cart_quantity.text-center > input[type=hidden]:nth-child(1)', '#total_product_price_1_1_0', 'First product incrementation test failed');
 
-    await sleep(2000);
-
     await driver.findElement(By.css('#cart_quantity_down_1_1_0_0')).click();
-    await sleep(2000);
+    await sleep(1500);
     await checkPriceAndQuantityOfProducts(driver, '1', '$16.51', '$16.51', '#product_price_1_1_0',
     '#product_1_1_0_0 > td.cart_quantity.text-center > input[type=hidden]:nth-child(1)', '#total_product_price_1_1_0', 'First product decrementation test failed');
 
+    await driver.findElement(By.id('2_7_0_0')).click();
+    await sleep(3000);
+    let summCheck = await driver.findElements(By.css('#product_2_7_0_0 > td.cart_quantity.text-center > input.cart_quantity_input.form-control.grey'));
+    if (summCheck !='') {
+        console.log('ERROR Tc05PricesChecking element still in cart!')
+    }
+
+    if (await driver.findElement(By.css('#total_price_without_tax')).getText() !== '$70.51') {
+        console.log('ERROR Tc05PricesChecking total cost is different than expected')
+    }
+
+    await driver.close();
 
 }
 
