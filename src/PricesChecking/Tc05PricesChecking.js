@@ -1,5 +1,7 @@
 const { Builder, By, Key, until } = require('selenium-webdriver');
 
+const sleep = (milliseconds) => new Promise(resolve => setTimeout(resolve, milliseconds));
+
 async function Tc05PricesChecking() {
 
     let driver = await new Builder().forBrowser('chrome').build();
@@ -21,20 +23,27 @@ async function Tc05PricesChecking() {
     await checkPriceAndQuantityOfProducts(driver, '2', '$26.00', '$52.00', '#product_price_3_13_0 > span', 
     '#product_3_13_0_0 > td.cart_quantity.text-center > input.cart_quantity_input.form-control.grey', '#total_product_price_3_13_0', 'Third product test failed');
 
+    
+
     await driver.findElement(By.css('#cart_quantity_up_1_1_0_0')).click();
+    await sleep(2000);
     await checkPriceAndQuantityOfProducts(driver, '2', '$16.51', '$33.02', '#product_price_1_1_0',
     '#product_1_1_0_0 > td.cart_quantity.text-center > input[type=hidden]:nth-child(1)', '#total_product_price_1_1_0', 'First product incrementation test failed');
 
-    // await driver.findElement(By.css('#cart_quantity_down_1_1_0_0')).click();
-    // await checkPriceAndQuantityOfProducts(driver, '1', '$16.51', '$16.51', '#product_price_1_1_0',
-    // '#product_1_1_0_0 > td.cart_quantity.text-center > input[type=hidden]:nth-child(1)', '#total_product_price_1_1_0', 'First product decrementation test failed');  
+    await sleep(2000);
+
+    await driver.findElement(By.css('#cart_quantity_down_1_1_0_0')).click();
+    await sleep(2000);
+    await checkPriceAndQuantityOfProducts(driver, '1', '$16.51', '$16.51', '#product_price_1_1_0',
+    '#product_1_1_0_0 > td.cart_quantity.text-center > input[type=hidden]:nth-child(1)', '#total_product_price_1_1_0', 'First product decrementation test failed');
+
 
 }
 
 async function addingToCart(driver, cssOfProduct, cssAddToCartButton, ContinueShoppingOrProceedToCheckout) {
     const actions = driver.actions({ bridge: true });
     var elem = await driver.findElement(By.css(cssOfProduct));
-    await actions.move({ duration: 150, origin: elem, x: 0, y: 0 }).perform();
+    await actions.move({ duration: 350, origin: elem, x: 0, y: 0 }).perform();
     await driver.wait(until.elementLocated(By.css(cssAddToCartButton))).click();
 
     if (ContinueShoppingOrProceedToCheckout === 'ContinueShopping') {
